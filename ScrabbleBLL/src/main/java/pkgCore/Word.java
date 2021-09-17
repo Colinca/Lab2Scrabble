@@ -10,7 +10,8 @@ public class Word implements Comparable<Word> {
 
 	public Word(String strWord) {
 		WordID = UUID.randomUUID();
-		Word = strWord.toUpperCase();
+		Word = strWord.toUpperCase(); //test
+		System.out.println("Testing");
 	}
 	
 	@Override
