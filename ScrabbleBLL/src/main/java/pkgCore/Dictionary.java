@@ -60,10 +60,35 @@ public class Dictionary {
 	 * @return
 	 */
 	private boolean match(String first, String second) {
-
-
-
-		return false;
-	}
+		if(first.charAt(0) == '?') //wildcard 1
+        {
+            if(first.length()==1 && second.length()==1) //end of the strings
+                return true;
+            
+            else if(first.length()==1 || second.length()==1) //different lengths
+                return false;
+            
+            else
+                return match(first.substring(1),second.substring(1)); //continue to next
+        }
+        
+        else if(first.charAt(0) == '*') //wildcard 2
+            return true;
+        
+        else if (first.charAt(0) == second.charAt(0))
+        {
+            if(first.length()==1 && second.length()==1) //end of the strings
+                return true;
+            
+            else if(first.length()==1 || second.length()==1) //different lengths
+                return false;
+            
+            else
+                return match(first.substring(1),second.substring(1)); //continue to next
+            
+        } //end
+        
+        return false;
+    }
 
 }
